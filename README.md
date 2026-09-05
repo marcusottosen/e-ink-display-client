@@ -43,6 +43,28 @@ The agent starts automatically on later boots. Follow its logs with:
 journalctl -u inky-agent -f
 ```
 
+## Change the Docker host address
+
+Edit the installed configuration; use the host's HTTP address and port, not a
+Docker socket address:
+
+```bash
+sudoedit /etc/inky-agent/config.env
+```
+
+Change this value, for example when the Docker host moves to `192.168.0.120`:
+
+```ini
+INKY_AGENT_SERVER_URL=http://192.168.0.120:8000
+```
+
+Then restart the agent. No reinstall or Pi reboot is needed:
+
+```bash
+sudo systemctl restart inky-agent
+sudo systemctl status inky-agent
+```
+
 ## Update an installed Pi
 
 ```bash

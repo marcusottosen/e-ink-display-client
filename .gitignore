@@ -1,30 +1,28 @@
-.tox/
-.coverage
+# Python bytecode and test output
 __pycache__/
-sphinx/_build/
 *.py[cod]
-*.swp
-dist/
-sdist/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Python environments and package builds
+.venv/
+venv/
 env/
-build/
-develop-eggs/
-eggs/
 *.egg-info/
-.installed.cfg
-*.egg
-*.deb
-*.dsc
-*.build
-*.changes
-*.orig.*
-testing/
-MANIFEST
-.idea
-pip-log.txt
-pip-delete-this-directory.txt
-library/test/scrollphat/
-library/debian/
-packaging/*tar.xz
+build/
+dist/
+
+# Local configuration and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.swp
+*~
+
+# Operating-system files
 .DS_Store
-sphinx.virtualenv
+Thumbs.db

@@ -1,0 +1,27 @@
+[Unit]
+Description=Inky E673 Raspberry Pi display agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+NotifyAccess=main
+User=inky-agent
+Group=inky-agent
+WorkingDirectory=/var/lib/inky-agent
+EnvironmentFile=/etc/inky-agent/config.env
+ExecStart=/opt/inky/pi-agent/.venv/bin/python -m inky_pi_agent
+Restart=on-failure
+RestartSec=10
+WatchdogSec=120
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+# The installer substitutes the source project path and exposes only that path
+# at /opt/inky inside the service sandbox.
+BindReadOnlyPaths=@PROJECT_ROOT@:/opt/inky
+ReadWritePaths=/var/lib/inky-agent
+
+[Install]
+WantedBy=multi-user.target

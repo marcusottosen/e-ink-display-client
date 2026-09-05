@@ -1,11 +1,12 @@
 [build-system]
-requires = ["hatchling", "hatch-fancy-pypi-readme", "hatch-requirements-txt"]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
 name = "inky"
-dynamic = ["version", "readme", "optional-dependencies"]
-description = "Inky pHAT Driver"
+dynamic = ["version"]
+description = "Local driver for the Pimoroni Inky Impression E673 display"
+readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">= 3.7"
 authors = [
@@ -17,6 +18,8 @@ maintainers = [
 keywords = [
     "Raspberry Pi",
     "e-paper",
+    "Inky Impression",
+    "E673",
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -42,9 +45,6 @@ dependencies = [
     "gpiodevice>=0.0.3"
 ]
 
-[tool.hatch.metadata.hooks.requirements_txt.optional-dependencies]
-example-depends = ["requirements-examples.txt"]
-
 [project.urls]
 GitHub = "https://www.github.com/pimoroni/inky"
 Homepage = "https://www.pimoroni.com"
@@ -56,9 +56,7 @@ path = "inky/__init__.py"
 include = [
     "inky",
     "README.md",
-    "CHANGELOG.md",
-    "LICENSE",
-    "requirements-examples.txt"
+    "LICENSE"
 ]
 
 [tool.hatch.build.targets.sdist]
@@ -68,14 +66,6 @@ include = [
 exclude = [
     ".*",
     "dist"
-]
-
-[tool.hatch.metadata.hooks.fancy-pypi-readme]
-content-type = "text/markdown"
-fragments = [
-  { path = "README.md" },
-  { text = "\n" },
-  { path = "CHANGELOG.md" }
 ]
 
 [tool.ruff]
@@ -115,7 +105,6 @@ ignore = [
     'Makefile',
     'tox.ini',
     'tests/*',
-    'examples/*',
     '.coveragerc',
     'requirements-dev.txt'
 ]

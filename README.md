@@ -13,12 +13,13 @@ downloads a newer RGB PNG, and refreshes the display.
 Use Raspberry Pi OS with the display connected and network access to
 `192.168.0.101:8000`.
 
-The project repository is `git@github.com:marcusottosen/e-ink-display-client.git`.
+The project repository is
+`ssh://git@ssh.github.com:443/marcusottosen/e-ink-display-client.git`.
 It is private, so add the new Pi's SSH public key to the GitHub account first.
 
 ```bash
 sudo apt update && sudo apt install -y git
-git clone git@github.com:marcusottosen/e-ink-display-client.git ~/e-ink-display-client
+git clone ssh://git@ssh.github.com:443/marcusottosen/e-ink-display-client.git ~/e-ink-display-client
 cd ~/e-ink-display-client
 sudo ./pi-agent/scripts/install-pi-agent.sh "$PWD"
 sudoedit /etc/inky-agent/config.env

@@ -28,6 +28,20 @@ systemctl status inky-agent
 sudoedit /etc/inky-agent/config.env
 ```
 
+## Add WiFi SSID
+`````js
+sudo nmcli connection add type wifi \
+  ifname wlan0 \
+  con-name "a WiFi" \
+  ssid "SSID" \
+  wifi-sec.key-mgmt wpa-psk \
+  wifi-sec.psk "PASSWORD"
+
+sudo nmcli connection modify "a WiFi" \
+  connection.autoconnect yes \
+  connection.autoconnect-priority 20
+`````
+
 ## Update an installed Pi
 
 ```bash

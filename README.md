@@ -3,6 +3,8 @@
 Raspberry Pi client for the Pimoroni Inky Impression E673 / Spectra 6 7.3-inch
 display.
 
+Requires 2.4 GHz only
+
 ## Set up a Pi
 
 ```bash

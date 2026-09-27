@@ -7,12 +7,19 @@ display.
 
 ```bash
 sudo apt update && sudo apt install -y git
-git clone ssh://git@ssh.github.com:443/marcusottosen/e-ink-display-client.git ~/e-ink-display-client
+git clone https://github.com/marcusottosen/e-ink-display-client.git
 cd ~/e-ink-display-client
 sudo ./pi-agent/scripts/install-pi-agent.sh "$PWD"
+
 sudoedit /etc/inky-agent/config.env
+// set server url
+sudoedit /boot/firmware/config.txt
+// comment out dtparam=spi=on 
+
+reboot...
+
 sudo systemctl enable --now inky-agent
-sudo systemctl status inky-agent
+systemctl status inky-agent
 ```
 
 ## Edit the agent configuration

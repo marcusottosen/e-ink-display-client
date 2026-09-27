@@ -22,7 +22,7 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 
 apt-get update
-apt-get install -y python3-venv python3-pip
+apt-get install -y python3-venv python3-pip libopenjp2-7 libopenblas0
 
 if command -v raspi-config >/dev/null 2>&1; then
     raspi-config nonint do_spi 0
